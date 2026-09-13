@@ -150,3 +150,5 @@ class TestNewLocation:
             print("Адрес удален успешно")
         else:
             print("Адрес не удален")
+
+        print("Тестирование test_create_new_location завершено успешно")
