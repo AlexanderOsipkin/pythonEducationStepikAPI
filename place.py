@@ -1,7 +1,7 @@
 import requests
 
 
-class TestNewLocation():
+class TestNewLocation:
     """Работа с новой локацией"""
 
     def test_create_new_location(self):
@@ -10,7 +10,7 @@ class TestNewLocation():
         base_url = "https://rahulshettyacademy.com"  # Базовый урл
         key = "?key=qaclick123"  # Параметр для всех запросов
 
-        """POST"""
+        # POST
         post_resource = "/maps/api/place/add/json"  # Ресурс метода post
 
         post_url = base_url + post_resource + key
@@ -50,8 +50,7 @@ class TestNewLocation():
         place_id = check_post.get("place_id")
         print(place_id)
 
-        """GET"""
-
+        # GET
         """Проверка создания новой локации"""
 
         get_resource = "/maps/api/place/get/json"
@@ -69,3 +68,51 @@ class TestNewLocation():
             print("Получена новая локация")
         else:
             print("Локация не получена. Получена ошибка")
+
+        # PUT
+        """Изменение новой локации"""
+
+        put_resource = "/maps/api/place/update/json"
+
+        put_url = base_url + put_resource + key
+        print(put_url)
+
+        json_for_update_new_location = {
+            "place_id": place_id,
+            "address": "100 Lenina street, RU",
+            "key": "qaclick123"
+        }
+
+        result_put = requests.put(put_url, json=json_for_update_new_location)
+        print(result_put.text)
+
+        assert result_put.status_code == 200
+        if result_put.status_code == 200:
+            print("Локация успешно обновлена")
+        else:
+            print("Локация не обновлена. Получена ошибка")
+
+        check_put = result_put.json()
+        check_put_info = check_put.get("msg")
+        print(f'Сообщение: {check_put_info}')
+
+        assert check_put_info == "Address successfully updated"
+        print("Сообщение верно")
+
+        """Проверка изменения новой локации"""
+
+        result_get = requests.get(get_url)
+        print(result_get.text)
+
+        assert result_get.status_code == 200
+        if result_get.status_code == 200:
+            print("Проверка изменения локации прошла успешно")
+        else:
+            print("Проверка не прошла")
+
+        check_address = result_get.json()
+        check_address_info = check_address.get("address")
+        print(f'Сообщение: {check_address_info}')
+
+        assert check_address_info == "100 Lenina street, RU"
+        print("Адрес верный")
