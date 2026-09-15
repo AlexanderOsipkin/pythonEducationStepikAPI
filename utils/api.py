@@ -9,6 +9,7 @@ key = "?key=qaclick123"
 post_resource = "/maps/api/place/add/json"  # Ресурс метода post
 get_resource = "/maps/api/place/get/json"  # Ресурс метода get
 put_resource = "/maps/api/place/update/json"  # Ресурс метода put
+delete_resource = "/maps/api/place/delete/json"  # Ресурс метода delete
 
 
 class GoogleMapsAPI:
@@ -66,6 +67,22 @@ class GoogleMapsAPI:
         }
 
         result_put = HttpMethods.put(put_url, json_for_update_new_location)
-        print(f"Статус код GET: {result_put.status_code}")
+        print(f"Статус код PUT: {result_put.status_code}")
         print(result_put.text)
         return result_put
+
+    """Method delete new location"""
+
+    @staticmethod
+    def delete_new_place(place_id):
+        delete_url = base_url + delete_resource + key
+        print(delete_url)
+
+        json_for_delete_new_location = {
+            "place_id": place_id,
+        }
+
+        result_delete = HttpMethods.delete(delete_url, json_for_delete_new_location)
+        print(f"Статус код DELETE: {result_delete.status_code}")
+        print(result_delete.text)
+        return result_delete
