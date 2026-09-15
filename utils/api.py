@@ -1,4 +1,3 @@
-import requests
 from utils.http_method import HttpMethods
 
 
@@ -38,7 +37,7 @@ class GoogleMapsAPI:
         print(post_url)
 
         result_post = HttpMethods.post(post_url, json_for_create_new_location)
-        print(f"Статус код POST: {result_post.status_code}")
+        print(f"Status code POST: {result_post.status_code}")
         print(result_post.text)
         return result_post
 
@@ -50,7 +49,7 @@ class GoogleMapsAPI:
         print(get_url)
 
         result_get = HttpMethods.get(get_url)
-        print(f"Статус код GET: {result_get.status_code}")
+        print(f"Status code GET: {result_get.status_code}")
         print(result_get.text)
         return result_get
 
@@ -67,7 +66,7 @@ class GoogleMapsAPI:
         }
 
         result_put = HttpMethods.put(put_url, json_for_update_new_location)
-        print(f"Статус код PUT: {result_put.status_code}")
+        print(f"Status code PUT: {result_put.status_code}")
         print(result_put.text)
         return result_put
 
@@ -83,6 +82,6 @@ class GoogleMapsAPI:
         }
 
         result_delete = HttpMethods.delete(delete_url, json_for_delete_new_location)
-        print(f"Статус код DELETE: {result_delete.status_code}")
+        print(f"Status code DELETE: {result_delete.status_code}")
         print(result_delete.text)
         return result_delete
