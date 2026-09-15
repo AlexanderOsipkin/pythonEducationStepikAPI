@@ -48,5 +48,6 @@ class TestCreatePlace:
         Checking.check_status_code(result_get, 404)
         Checking.check_json_token(result_get, ['msg'])
         Checking.check_json_value(result_get, 'msg', 'Get operation failed, looks like place_id  doesn\'t exists')
+        Checking.check_json_search_word_in_value(result_get, 'msg', 'failed')
 
         print("test_create_new_place PASSED")

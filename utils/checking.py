@@ -25,7 +25,7 @@ class Checking:
         check_info = check.get(field_name)
         assert check_info == expected_value
         print(check_info)
-        print(f"{field_name} good")
+        print(f"{field_name} present")
 
     @staticmethod
     def check_json_search_word_in_value(result, field_name, search_word):
