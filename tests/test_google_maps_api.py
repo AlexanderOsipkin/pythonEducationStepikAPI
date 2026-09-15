@@ -1,11 +1,10 @@
-import json
-
 from utils.api import GoogleMapsAPI
 from utils.checking import Checking
 
+"""Create, Update and delete location"""
+
 
 class TestCreatePlace:
-    """Create, Update and delete location"""
 
     def test_create_new_place(self):
         print("Method POST")
