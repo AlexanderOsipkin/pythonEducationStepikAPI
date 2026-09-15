@@ -34,7 +34,7 @@ class TestNewLocation:
         }
 
         # Создаем текстовый файл и сохраняем в него place_id
-        with open("place_id.txt", "w") as file:
+        with open("../place_id.txt", "w") as file:
 
             # Создаем 5 новых локаций
             for i in range(5):
@@ -72,7 +72,7 @@ class TestNewLocation:
         get_resource = "/maps/api/place/get/json"  # Ресурс метода get
 
         # Читаем place_id из созданного файла
-        with open("place_id.txt", "r") as file:
+        with open("../place_id.txt", "r") as file:
 
             # Проверяем каждый place_id из файла
             for place_id in file:

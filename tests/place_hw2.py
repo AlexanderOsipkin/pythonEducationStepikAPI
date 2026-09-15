@@ -7,8 +7,8 @@ class TestNewLocation:
     def test_create_new_location(self):
         """Создаем 5 новых локаций, удаляем 2 и 4, проверяем и сохраняем существующие"""
 
-        file_1 = "place_id.txt"
-        file_2 = "place_id_2.txt"
+        file_1 = "../place_id.txt"
+        file_2 = "../place_id_2.txt"
         base_url = "https://rahulshettyacademy.com"
         key = "?key=qaclick123"
 
