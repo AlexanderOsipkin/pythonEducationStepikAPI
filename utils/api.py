@@ -36,7 +36,7 @@ class GoogleMapsAPI:
         print(post_url)
 
         result_post = HttpMethods.post(post_url, json_for_create_new_location)
-        print(f"Статус код GET: {result_post.status_code}")
+        print(f"Статус код POST: {result_post.status_code}")
         print(result_post.text)
         return result_post
 
